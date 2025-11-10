@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placement Eligibility Predictor</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e8f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 14px;
+            width: 430px;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #004a9f;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #002447;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #bbb;
+            font-size: 15px;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 6px rgba(0,123,255,0.45);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #007bff;
+            color: white;
+            font-size: 17px;
+            border-radius: 8px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #0059c8;
+        }
+
+        .result {
+            margin-top: 18px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            background: #e0ecff;
+            color: #003370;
+        }
+
+        .error {
+            color: #b00020;
+            font-size: 13px;
+            margin-top: -8px;
+            margin-bottom: 8px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Placement Eligibility Predictor</h2>
+
+    <form id="predictForm" action="/predict" method="POST" novalidate>
+        <label for="attendance">Attendance (%)</label>
+        <input id="attendance" type="number" name="attendance" required min="0" max="100" step="0.1"
+               placeholder="Enter attendance (0-100)" oninput="clampValue(this, 0, 100)">
+        <div id="attendanceError" class="error" style="display:none">Attendance must be between 0 and 100.</div>
+
+        <label for="internal_marks">Internal Marks (out of 20)</label>
+        <input id="internal_marks" type="number" name="internal_marks" required min="0" max="20" step="0.1"
+               placeholder="Enter internal score (0-20)" oninput="clampValue(this, 0, 20)">
+        <div id="marksError" class="error" style="display:none">Internal marks must be between 0 and 20.</div>
+
+        <label for="age">Age</label>
+        <input id="age" type="number" name="age" required min="15" max="100" step="1" placeholder="Enter age">
+
+        <label for="extra_curriculars">Extra Curriculars</label>
+        <select id="extra_curriculars" name="extra_curriculars">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+
+        <label for="Internship">Internship</label>
+        <select id="part_time_job" name="part_time_job">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+
+        <label for="backlogs">Backlogs</label>
+        <input id="backlogs" type="number" name="backlogs" required min="0" max="30" placeholder="Enter number of backlogs">
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <p class="result">{{ prediction_text }}</p>
+    {% endif %}
+</div>
+
+<script>
+    function clampValue(el, min, max) {
+        if (el.value === '') return;
+        const val = parseFloat(el.value);
+        if (isNaN(val)) {
+            el.value = '';
+            return;
+        }
+        if (val < min) el.value = min;
+        if (val > max) el.value = max;
+    }
+
+    document.getElementById('predictForm').addEventListener('submit', function(e) {
+        let valid = true;
+        const attendance = parseFloat(document.getElementById('attendance').value);
+        const marks = parseFloat(document.getElementById('internal_marks').value);
+        const attErr = document.getElementById('attendanceError');
+        const marksErr = document.getElementById('marksError');
+
+        attErr.style.display = 'none';
+        marksErr.style.display = 'none';
+
+        if (isNaN(attendance) || attendance < 0 || attendance > 100) {
+            attErr.style.display = 'block';
+            valid = false;
+        }
+        if (isNaN(marks) || marks < 0 || marks > 20) {
+            marksErr.style.display = 'block';
+            valid = false;
+        }
+
+        if (!valid) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>

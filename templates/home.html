@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home-container">
+
+    <h1>Welcome to EduPro Predictor</h1>
+    <p class="subtext">
+        An AI-powered system that predicts your placement eligibility and provides insights
+        into improving academic success.
+    </p>
+
+    <div class="features-grid">
+        <div class="feature-box">
+            <h3>🎯 Smart Prediction</h3>
+            <p>Get accurate placement eligibility results based on your academic and personal growth metrics.</p>
+        </div>
+        <div class="feature-box">
+            <h3>📊 Insights Dashboard</h3>
+            <p>Understand which factors contribute the most toward placement readiness.</p>
+        </div>
+        <div class="feature-box">
+            <h3>🚀 Student Growth</h3>
+            <p>Helps students work on their weaknesses and improve future opportunities.</p>
+        </div>
+    </div>
+
+    <a href="/predict_page">
+        <button class="btn-primary big-btn">Start Prediction</button>
+    </a>
+</div>
+{% endblock %}

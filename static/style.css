@@ -1,0 +1,238 @@
+.home-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.subtext {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.feature-box {
+    width: 280px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+.feature-box h3 {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.big-btn {
+    padding: 14px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+
+/* Global */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef6ff;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: #0059b3;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Center Utility */
+.center {
+    text-align: center;
+}
+
+/* Page Content */
+.content {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Home Page */
+.home-container {
+    text-align: center;
+    width: 650px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* Info Blocks on Home/About */
+.info-block {
+    margin-top: 25px;
+    background: #e6f1ff;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #005bb5;
+}
+
+/* Prediction Form */
+.form-container {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 420px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+}
+
+input, select {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+}
+
+.result {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #003370;
+}
+
+/* Insights / About */
+.info-container {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+/* Insight Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 18px;
+}
+
+/* Graph Cards */
+.graph-card {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.graph-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.about-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0073e6, #003d80);
+    color: white;
+    margin-bottom: 40px;
+    border-radius: 0 0 20px 20px;
+}
+
+.about-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.about-header p {
+    font-size: 18px;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 0 40px 40px;
+}
+
+.about-card {
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 18px rgba(0,0,0,0.18);
+}
+
+.about-card .icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.about-card h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
